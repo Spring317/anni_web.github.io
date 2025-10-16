@@ -441,16 +441,6 @@ function initImageUpload() {
     if (addImageBtn) {
         addImageBtn.style.display = 'none';
     }
-    
-    // Show instructions instead
-    const instructions = document.createElement('div');
-    instructions.innerHTML = `
-        <div style="position: fixed; bottom: 2rem; right: 2rem; background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 10px; max-width: 300px; font-size: 0.9rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-            <strong>Static Version</strong><br>
-            To add images: Edit galleries object in script-static.js and add image files to your repository.
-        </div>
-    `;
-    document.body.appendChild(instructions);
 }
 
 // Notification functions
