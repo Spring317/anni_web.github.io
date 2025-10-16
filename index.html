@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>Our Story</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#how-we-meet" class="nav-link">How We Meet</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#our-journey" class="nav-link">Our Journey</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="home-container">
+            <div class="hearts-background">
+                <div class="heart heart-1"></div>
+                <div class="heart heart-2"></div>
+                <div class="heart heart-3"></div>
+                <div class="heart heart-4"></div>
+                <div class="heart heart-5"></div>
+            </div>
+            
+            <div class="home-content">
+                <h1 class="main-title">Our Love Story</h1>
+                <p class="subtitle">A journey of two hearts becoming one</p>
+                
+                <div class="timer-container">
+                    <h2>Together for</h2>
+                    <div class="timer">
+                        <div class="time-unit">
+                            <span id="months">0</span>
+                            <label>Months</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="days">0</span>
+                            <label>Days</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="hours">0</span>
+                            <label>Hours</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="minutes">0</span>
+                            <label>Minutes</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="seconds">0</span>
+                            <label>Seconds</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="love-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Every love story is beautiful, but ours is my favorite"</p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Meet Section -->
+    <section id="how-we-meet" class="section">
+        <div class="container">
+            <h2 class="section-title">How We Meet</h2>
+            <p class="section-subtitle">The moment our paths crossed and changed our lives forever</p>
+            
+            <div class="image-grid" id="meet-gallery">
+                <!-- Images will be dynamically added here -->
+                <div class="image-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <p>Add your precious moments here</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey Section -->
+    <section id="our-journey" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">Every step we've taken together</p>
+            
+            <!-- Journey Grid Layout -->
+            <div class="journey-grid-container">
+                <div class="journey-card">
+                    <div class="journey-card-header">
+                        <div class="journey-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="journey-info">
+                            <h3>First</h3>
+                            <p>The beginning of our beautiful story</p>
+                        </div>
+                    </div>
+                    <div class="image-grid journey-grid" id="first-gallery">
+                        <div class="image-placeholder">
+                            <i class="fas fa-heart"></i>
+                            <p>Our first moments</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="journey-card">
+                    <div class="journey-card-header">
+                        <div class="journey-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="journey-info">
+                            <h3>Distance Relationship</h3>
+                            <p>Love knows no distance</p>
+                        </div>
+                    </div>
+                    <div class="image-grid journey-grid" id="distance-gallery">
+                        <div class="image-placeholder">
+                            <i class="fas fa-heart"></i>
+                            <p>Long distance memories</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="journey-card">
+                    <div class="journey-card-header">
+                        <div class="journey-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="journey-info">
+                            <h3>Together Again</h3>
+                            <p>Finally in each other's arms</p>
+                        </div>
+                    </div>
+                    <div class="image-grid journey-grid" id="together-gallery">
+                        <div class="image-placeholder">
+                            <i class="fas fa-heart"></i>
+                            <p>Together at last</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Upload Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add Images</h3>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <label for="imageInput">Select images to upload:</label>
+                <input type="file" id="imageInput" name="images[]" multiple accept="image/*" title="Select images to upload to your love story gallery">
+                <div class="file-info">
+                    <p>Supported formats: JPG, PNG, GIF, WebP</p>
+                    <p>Images will be stored in local folders</p>
+                    <p><strong>Note:</strong> HEIC files are ignored (only web-compatible formats displayed)</p>
+                </div>
+            </form>
+            <div class="modal-buttons">
+                <button id="uploadBtn">Upload Images</button>
+                <button id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Image Button -->
+    <div class="add-image-btn" id="addImageBtn">
+        <i class="fas fa-plus"></i>
+    </div>
+
+    <script src="script-static.js"></script>
+</body>
+</html>

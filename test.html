@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test</title>
+</head>
+<body>
+    <h1>Testing Image Access</h1>
+    <p>Loading PNG images from distance gallery...</p>
+    <div id="test-gallery"></div>
+    <div id="status"></div>
+    
+    <script>
+        // Test if we can load images directly
+        console.log('Testing image loading...');
+        const status = document.getElementById('status');
+        status.innerHTML = 'Fetching API...';
+        
+        fetch('/api/images/distance-gallery')
+            .then(response => {
+                status.innerHTML = `API Response: ${response.status}`;
+                return response.json();
+            })
+            .then(data => {
+                console.log('API Response:', data);
+                status.innerHTML = `Found ${data.files ? data.files.length : 0} files`;
+                
+                if (data.success && data.files.length > 0) {
+                    const gallery = document.getElementById('test-gallery');
+                    
+                    // Show first 5 PNG images
+                    const pngFiles = data.files.slice(0, 5);
+                    
+                    pngFiles.forEach((file, index) => {
+                        const img = document.createElement('img');
+                        img.src = file.url;
+                        img.style.width = '200px';
+                        img.style.height = '200px';
+                        img.style.objectFit = 'cover';
+                        img.style.margin = '10px';
+                        img.style.border = '2px solid #ccc';
+                        img.alt = file.name;
+                        
+                        img.onerror = () => {
+                            console.error('Failed to load:', file.url);
+                            status.innerHTML += `<br>Failed: ${file.name}`;
+                        };
+                        
+                        img.onload = () => {
+                            console.log('Successfully loaded:', file.url);
+                            status.innerHTML += `<br>Loaded: ${file.name}`;
+                        };
+                        
+                        gallery.appendChild(img);
+                        
+                        // Add filename below image
+                        const caption = document.createElement('div');
+                        caption.textContent = file.name;
+                        caption.style.textAlign = 'center';
+                        caption.style.fontSize = '12px';
+                        caption.style.marginTop = '5px';
+                        gallery.appendChild(caption);
+                    });
+                    
+                    console.log(`Added ${pngFiles.length} images to test gallery`);
+                } else {
+                    console.error('No files found or API error');
+                    status.innerHTML = 'No files found or API error';
+                }
+            })
+            .catch(error => {
+                console.error('API Error:', error);
+                status.innerHTML = `Error: ${error.message}`;
+            });
+    </script>
+</body>
+</html>
